@@ -1,5 +1,6 @@
 import pandas as pd
 from pandas import DataFrame
+import time
 import xlrd
 import os
 
@@ -35,7 +36,11 @@ if __name__ == "__main__":
     df3 = pd.read_excel(i, sheet_name='UDF ITEM')
     file_name = os.path.split(i)
     file_name = file_name[-1]
-    with pd.ExcelWriter('./Add_suffix/' + file_name) as f:
-        insert_xlsx(df,f,'PRJ WP Site')
-        insert_xlsx(df2,f, 'PLO dates')
-        insert_xlsx(df3,f, 'UDF ITEM')
+    file_name = file_name.split(' ')
+    process_time = time.strftime("%Y%m%d_%H%M", time.localtime())
+    file_name = file_name[0]+'_'+file_name[1]+'_'+process_time
+    print(file_name)
+    #with pd.ExcelWriter('./Add_suffix/' + file_name) as f:
+    #    insert_xlsx(df,f,'PRJ WP Site')
+    #    insert_xlsx(df2,f, 'PLO dates')
+    #    insert_xlsx(df3,f, 'UDF ITEM')
