@@ -39,8 +39,8 @@ if __name__ == "__main__":
     file_name = file_name.split(' ')
     process_time = time.strftime("%Y%m%d_%H%M", time.localtime())
     file_name = file_name[0]+'_'+file_name[1]+'_'+process_time
-    print(file_name)
-    #with pd.ExcelWriter('./Add_suffix/' + file_name) as f:
-    #    insert_xlsx(df,f,'PRJ WP Site')
-    #    insert_xlsx(df2,f, 'PLO dates')
-    #    insert_xlsx(df3,f, 'UDF ITEM')
+
+    with pd.ExcelWriter('./Add_suffix/' + file_name) as f:
+        insert_xlsx(df,f,'PRJ WP Site')
+        insert_xlsx(df2,f, 'PLO dates')
+        insert_xlsx(df3,f, 'UDF ITEM')
